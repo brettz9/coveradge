@@ -11,10 +11,6 @@ const {BadgeFactory} = require('gh-badges');
 // const {convertFile} = require('convert-svg-to-png');
 
 /**
-* @typedef {PlainObject} CoveradgeOptions
-*/
-
-/**
  * @param {CoveradgeOptions} cfg
  * @returns {void}
  */

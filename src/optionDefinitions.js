@@ -4,6 +4,11 @@
 
 const pkg = require('../package.json');
 
+// Todo: We really need a comamnd-line-args-TO-typedef-jsdoc generator!
+/**
+* @typedef {PlainObject} CoveradgeOptions
+*/
+
 const optionDefinitions = [
   {
     name: 'target', alias: 't', type: String, defaultOption: true,
