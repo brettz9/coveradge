@@ -17,7 +17,7 @@ npm i -P coveradge
 ```json
 "nyc": {
   "reporter": [
-    "json-summary",
+    "json-summary"
   ]
 }
 ```
