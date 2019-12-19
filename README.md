@@ -7,8 +7,19 @@
 ## Installation
 
 ```
-npm i coveradge
+npm i -P coveradge
 ```
+
+## Usage
+
+1. Add a call to `coveradge` in your `package.json` `scripts`, e.g.,
+    after running `nyc`.
+
+That's it!
+
+## Options
+
+[![CLI instructions](cli.svg)](cli.svg)
 
 ## To-dos
 

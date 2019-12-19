@@ -9,6 +9,7 @@
   "scripts": {
     "eslint": "eslint --ext=js,md,html .",
     "build-coverage-badge": "./bin/index.js",
+    "publish-cli": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
     "test-unit": "mocha --require esm test/**",
     "test": "npm run eslint && npm run test-unit",
     "test-cov": "nyc npm run test-unit && npm run build-coverage-badge"
