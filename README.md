@@ -24,4 +24,4 @@ That's it!
 ## To-dos
 
 1. Complete existing code
-2. Add coverage (including badge) to this repo
+2. Add tests and coverage (including badge) to this repo
