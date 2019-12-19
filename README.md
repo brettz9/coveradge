@@ -12,7 +12,17 @@ npm i -P coveradge
 
 ## Usage
 
-1. Add a call to `coveradge` in your `package.json` `scripts`, e.g.,
+1. Ensure you have at least the following `reporter` in your `package.json`:
+
+```json
+"nyc": {
+  "reporter": [
+    "json-summary",
+  ]
+}
+```
+
+2. Add a call to `coveradge` in your `package.json` `scripts` at some point
     after running `nyc`.
 
 That's it!
