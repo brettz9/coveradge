@@ -25,6 +25,8 @@ npm i -P coveradge
 2. Add a call to `coveradge` in your `package.json` `scripts` at some point
     after running `nyc`.
 
+3. Add the badge to your README (e.g., `[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`)
+
 That's it!
 
 ## Options
