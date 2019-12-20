@@ -33,7 +33,7 @@ const optionDefinitions = [
   },
   {
     name: 'template', alias: 't', type: String,
-    description: 'template style (gh-badges templates: https://github.com/badges/shields/tree/master/gh-badges/templates); defaults to "flat"',
+    description: 'Template style (gh-badges templates: https://github.com/badges/shields/tree/master/gh-badges/templates); defaults to "flat"',
     typeLabel: '{underline ' +
       '"flat"|"flat-square"|"for-the-badge"|"plastic"|"social"' +
     '}'
