@@ -33,5 +33,5 @@ That's it!
 
 ## To-dos
 
-1. Complete existing code
+1. Test existing code (and remove notice above about not being complete)
 2. Add tests and coverage (including badge) to this repo

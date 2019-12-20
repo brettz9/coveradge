@@ -1,7 +1,5 @@
 'use strict';
 
-// Todo: Convert this for `coveradge`
-
 const pkg = require('../package.json');
 
 // Todo: We really need a comamnd-line-args-TO-typedef-jsdoc generator!
@@ -11,22 +9,40 @@ const pkg = require('../package.json');
 
 const optionDefinitions = [
   {
-    name: 'target', alias: 't', type: String, defaultOption: true,
-    description: 'The file path target to which to write the result',
-    typeLabel: '{underline file-path}'
-  },
-  {
-    name: 'config', alias: 'c', type: String,
-    description: 'Config file (or directory) to process for ' +
-      'opening its Web URL; must export/include a `sections` property, ' +
-      'and it is recommended to export a `definitions` property as well, ' +
-      'for easier reusability with `command-line-args`.',
-    typeLabel: '{underline file-path}'
+    name: 'output', alias: 'o', type: String, defaultOption: true,
+    description: 'Output file (extension not needed); defaults to ' +
+      '"coverage-badge"',
+    typeLabel: '{underline file}'
   },
   {
     name: 'format', alias: 'f', type: String,
-    description: 'Format of the output',
-    typeLabel: '{underline "json"|"html"}'
+    description: 'The output format (defaults to "svg")',
+    typeLabel: '{underline "svg"|"png"}'
+  },
+  {
+    name: 'color', alias: 'c', type: String,
+    description: 'The badge background color (gh-badges color: https://www.npmjs.com/package/gh-badges#colors); ' +
+      'defaults to "orange"',
+    typeLabel: '{underline color}'
+  },
+  {
+    name: 'textTemplate', type: String,
+    // eslint-disable-next-line no-template-curly-in-string
+    description: '; defaults to: "Coverage ${pct}%"',
+    typeLabel: '{underline textTemplate}'
+  },
+  {
+    name: 'template', alias: 't', type: String,
+    description: 'template style (gh-badges templates: https://github.com/badges/shields/tree/master/gh-badges/templates); defaults to "flat"',
+    typeLabel: '{underline ' +
+      '"flat"|"flat-square"|"for-the-badge"|"plastic"|"social"' +
+    '}'
+  },
+  {
+    name: 'coveragePath', type: String,
+    description: 'Path of coverage JSON file relative to the current ' +
+      'working directory; defaults to "./coverage/coverage-summary.json"',
+    typeLabel: '{underline coveragePath}'
   }
 ];
 
@@ -34,7 +50,7 @@ const cliSections = [
   {
     // Add italics: `{italic textToItalicize}`
     content: pkg.description +
-      '\n\n{italic clp -c="configPath" [--format=svg|html] target}'
+      '\n\n{italic coveradge --color=green [--format=svg|png] output}'
   },
   {
     optionList: optionDefinitions
