@@ -1,5 +1,5 @@
 <!--
-[![coverage badge](coverage-badge.svg)](coverage-badge.svg)
+[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/coverage-badge.svg?sanitize=true)](coverage-badge.svg)
 -->
 
 # coveradge
@@ -25,7 +25,7 @@ npm i -P coveradge
 2. Add a call to `coveradge` in your `package.json` `scripts` at some point
     after running `nyc`.
 
-3. Add the badge to your README (e.g., `[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`)
+3. Add the badge to your README (e.g., `[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`) or for a link that will also work on npmjs.com: `[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/coverage-badge.svg?sanitize=true)](coverage-badge.svg)`
 
 That's it!
 
