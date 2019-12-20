@@ -27,7 +27,8 @@ const optionDefinitions = [
   },
   {
     name: 'textTemplate', type: String,
-    description: 'Template for text of coverage badge; defaults to: "Coverage $\\{pct\\}%"',
+    description: 'Template for text of coverage badge; defaults to: ' +
+      '"Coverage $\\{pct\\}%"',
     typeLabel: '{underline textTemplate}'
   },
   {
