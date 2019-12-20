@@ -27,8 +27,7 @@ const optionDefinitions = [
   },
   {
     name: 'textTemplate', type: String,
-    // eslint-disable-next-line no-template-curly-in-string
-    description: '; defaults to: "Coverage ${pct}%"',
+    description: 'Template for text of coverage badge; defaults to: "Coverage $\\{pct\\}%"',
     typeLabel: '{underline textTemplate}'
   },
   {
@@ -50,7 +49,7 @@ const cliSections = [
   {
     // Add italics: `{italic textToItalicize}`
     content: pkg.description +
-      '\n\n{italic coveradge --color=green [--format=svg|png] output}'
+      '\n\n{italic coveradge [--color=aColor] [--format="svg"|"png"] output}'
   },
   {
     optionList: optionDefinitions
