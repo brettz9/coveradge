@@ -4,8 +4,6 @@
 
 # coveradge
 
-***This project is not yet complete!***
-
 ## Installation
 
 ```
@@ -35,5 +33,4 @@ That's it!
 
 ## To-dos
 
-1. Test existing code (and remove notice above about not being complete)
-2. Add tests and coverage (including badge commented out above) to this repo
+1. Add tests and coverage (including badge commented out above) to this repo
