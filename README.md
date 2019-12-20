@@ -35,7 +35,7 @@ That's it!
 
 ## See also
 
-- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) - Locally generated Mocha badges
+- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) - Locally generated Mocha test result badges
 
 ## To-dos
 
