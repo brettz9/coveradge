@@ -1,4 +1,6 @@
+<!--
 [![coverage badge](coverage-badge.svg)](coverage-badge.svg)
+-->
 
 # coveradge
 
@@ -34,4 +36,4 @@ That's it!
 ## To-dos
 
 1. Test existing code (and remove notice above about not being complete)
-2. Add tests and coverage (including badge) to this repo
+2. Add tests and coverage (including badge commented out above) to this repo
