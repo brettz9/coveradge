@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
+const {join} = require('path');
 const {cliBasics} = require('command-line-basics');
 const mainScript = require('../src/index.js');
 
 const optionDefinitions = cliBasics(
-  './src/optionDefinitions.js'
+  join(__dirname, '../src/optionDefinitions.js')
 );
 
 if (!optionDefinitions) { // cliBasics handled
