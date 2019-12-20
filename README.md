@@ -33,6 +33,10 @@ That's it!
 
 [![CLI instructions](cli.svg)](cli.svg)
 
+## See also
+
+- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) - Locally generated Mocha badges
+
 ## To-dos
 
 1. Add tests and coverage (including badge commented out above) to this repo
