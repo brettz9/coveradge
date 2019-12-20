@@ -39,4 +39,5 @@ That's it!
 
 ## To-dos
 
+1. Option to change color if meeting user-chosen nyc thresholds (e.g., 100%)
 1. Add tests and coverage (including badge commented out above) to this repo
