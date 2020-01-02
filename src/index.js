@@ -8,7 +8,6 @@ const {
 } = require('fs');
 
 const {BadgeFactory} = require('gh-badges');
-const {convertFile} = require('convert-svg-to-png');
 const es6Templates = require('es6-template-strings');
 
 const writeFile = promisify(writeFileOriginal);
@@ -63,6 +62,9 @@ async function coveradge ({
     ], {
       stdio: [process.stdin, out, process.stderr]
     });
+    // Make non-global as optional
+    // eslint-disable-next-line global-require, node/no-unpublished-require
+    const {convertFile} = require('convert-svg-to-png');
     const outputFile = await convertFile(join(process.cwd(), svgFilePath));
     console.log('Wrote file', outputFile);
     await unlink(svgFilePath);

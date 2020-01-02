@@ -2,10 +2,12 @@
 
 const pkg = require('../package.json');
 
+/* eslint-disable jsdoc/require-property */
 // Todo: We really need a comamnd-line-args-TO-typedef-jsdoc generator!
 /**
 * @typedef {PlainObject} CoveradgeOptions
 */
+/* eslint-enable jsdoc/require-property */
 
 const optionDefinitions = [
   {
@@ -16,7 +18,8 @@ const optionDefinitions = [
   },
   {
     name: 'format', alias: 'f', type: String,
-    description: 'The output format (defaults to "svg")',
+    description: 'The output format (defaults to "svg"); to use "png", you ' +
+      'must install, e.g., add to your dependencies, `convert-svg-to-png`.',
     typeLabel: '{underline "svg"|"png"}'
   },
   {
