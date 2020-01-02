@@ -6,8 +6,16 @@
 
 ## Installation
 
+If you need png export, run:
+
 ```
-npm i -P coveradge
+npm i -D coveradge convert-svg-to-png
+```
+
+Otherwise, just this:
+
+```
+npm i -D coveradge
 ```
 
 ## Usage

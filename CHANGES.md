@@ -1,5 +1,9 @@
 # CHANGES for coveradge
 
+## ?
+
+- Docs: Clarify installation
+
 ## 0.2.0
 
 - Linting (ESLint): Latest as per ash-nazg
