@@ -46,8 +46,10 @@ That's it!
 ## See also
 
 - Locally generated Mocha test result badges
+  - [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) (MIT)
   - [mocha-reporter-badge](https://github.com/albanm/mocha-reporter-badge) (MIT)
-  - [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) (GPL)
+- Generate badges of license types (e.g., by permissiveness)
+  - [license-badger](https://github.com/brettz9/license-badger)
 
 ## To-dos
 
