@@ -1,8 +1,11 @@
 # CHANGES for coveradge
 
-## ?
+## 0.3.0
 
 - Docs: Clarify installation
+- npm: Rename script to build-cli-svg
+- npm: Update dep. command-line-basics
+- npm: Update devDeps
 
 ## 0.2.0
 
