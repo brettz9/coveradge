@@ -1,5 +1,9 @@
 # CHANGES for coveradge
 
+## 0.4.0
+
+- npm: Update `command-line-basics` dep. and devDeps.
+
 ## 0.3.0
 
 - Docs: Clarify installation
