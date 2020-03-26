@@ -2,15 +2,24 @@
   "name": "coveradge",
   "version": "0.4.0",
   "description": "Generate coverage badges during local nyc/istanbul execution",
-  "main": "src/index.js",
+  "main": "src/reporter.js",
   "bin": {
     "coveradge": "./bin/index.js"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "json-summary"
+    ]
+  },
+  "coveradgeOptions": {
+    "output": "./badges/coverage-badge.svg"
   },
   "scripts": {
     "eslint": "eslint --ext=js,md,html .",
     "cli": "./bin/index.js",
     "build-cli": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
-    "test-unit": "mocha --require esm test/**",
+    "test-unit": "rimraf node_modules/.cache && nyc --reporter ../../src/reporter.js --reporter text --reporter json-summary mocha --require chai/register-expect --require esm test/*.js",
     "test": "npm run eslint && npm run test-unit",
     "test-cov": "nyc npm run test-unit && npm run cli"
   },
@@ -58,13 +67,17 @@
     "eslint-plugin-unicorn": "^17.2.0",
     "esm": "^3.2.25",
     "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
     "regenerator-runtime": "^0.13.5",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "@istanbuljs/load-nyc-config": "^1.0.0",
+    "array-flat-polyfill": "^1.0.1",
+    "badge-up": "https://github.com/yahoo/badge-up#516d7a18924ce33000595a7c2b567c75890fa243",
     "command-line-basics": "^0.8.0",
     "es6-template-strings": "^2.0.1",
-    "gh-badges": "^2.2.1"
+    "istanbul-lib-report": "^3.0.0"
   }
 }

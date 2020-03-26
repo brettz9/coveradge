@@ -3,7 +3,7 @@
 
 const {join} = require('path');
 const {cliBasics} = require('command-line-basics');
-const mainScript = require('../src/index.js');
+const mainScript = require('../src/coveradge.js');
 
 const optionDefinitions = cliBasics(
   join(__dirname, '../src/optionDefinitions.js')
@@ -12,6 +12,6 @@ const optionDefinitions = cliBasics(
 if (!optionDefinitions) { // cliBasics handled
   process.exit();
 }
-
-// Use `optionDefinitions`
-mainScript(optionDefinitions);
+(async () => {
+await mainScript(optionDefinitions);
+})();

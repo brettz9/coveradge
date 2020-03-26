@@ -24,6 +24,22 @@ module.exports = {
       rules: {
         'import/unambiguous': 0
       }
+    },
+    {
+      extends: [
+        'plugin:node/recommended-module'
+      ],
+      files: ['test/**'],
+      globals: {
+        __dirname: true,
+        expect: true
+      },
+      env: {
+        mocha: true
+      },
+      rules: {
+        'import/unambiguous': 0
+      }
     }
   ],
   parserOptions: {

@@ -3,14 +3,26 @@
 ## ?
 
 - Breaking change: Minimum of Node 10
+- Breaking change: Switch to `badge-up` so we can use different colors
+  together; drop `template` argument as a result.
 - Breaking change: Change `color` to `passColor` and add `failColor`
 - Breaking change: Remove `pct` param within `textTemplate` in favor of
-    new options (i.e., `failingConditionPct` as well as each condition
+    new options (i.e., `conditionPct` as well as each condition
     with `Pct` as suffix, e.g., `statementsPct` and `statementsThreshold`).
 - Enhancement: Change color if meeting user-chosen nyc thresholds (e.g.,
-    100%), passing on the calculated `failingCondition` (the first
-    condition within the optional `conditions` to fail), and the new
-    optional `*Threshold` params, to `textTemplate`
+    100%), passing on the calculated `condition` (the first
+    condition within the optional `conditions` to fail or not pass medium,
+    or if all are passing, then the first), and the new optional
+    `*Threshold` params, to `textTemplate`
+- Enhancement: Allow [watermarks](https://github.com/istanbuljs/nyc#high-and-low-watermarks)
+    from nyc or within threshold CLI options
+- Enhancement: Allow use as a regular nyc custom reporter (`--reporter coveradge`)
+- Enhancement: Allow reporting (with colors) for each condition or by aggregate
+- Enhancement: Allow intro section
+- Enhancement: Allow programmatic API to access `coverageSummary` JSON
+- Docs: Add coveradge badge for coveradge itself
+- Maintenance: 4 sp. for MD files
+- Testing: Begin Mocha + nyc tests
 - npm: Update devDeps.
 
 ## 0.4.0
