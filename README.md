@@ -25,10 +25,28 @@ npm i -D coveradge
 1. Ensure you have at least the following `reporter` in your `package.json`:
 
 ```json
-"nyc": {
-  "reporter": [
-    "json-summary"
-  ]
+{
+  "nyc": {
+    "reporter": [
+      "json-summary"
+    ]
+  }
+}
+```
+
+You may optionally set [coverage thresholds](https://github.com/istanbuljs/nyc#coverage-thresholds):
+
+```json
+{
+  "nyc": {
+    "reporter": [
+      "json-summary"
+    ],
+    "branches": 80,
+    "lines": 80,
+    "functions": 80,
+    "statements": 80
+  }
 }
 ```
 
@@ -53,5 +71,7 @@ That's it!
 
 ## To-dos
 
-1. Option to change color if meeting user-chosen nyc thresholds (e.g., 100%)
 1. Add tests and coverage (including badge commented out above) to this repo
+1. Switch to `badge-up` so we can use different colors together (and use
+    with [watermarks](https://github.com/istanbuljs/nyc#high-and-low-watermarks))
+1. Change to become a regular nyc reporter?
