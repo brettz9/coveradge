@@ -20,7 +20,7 @@ async function coveradge (cfg) {
     format = 'svg',
     passColor = 'green,s{black}',
     failColor = 'orange,s{black}',
-    mediumColor = 'yellow,s{black}',
+    mediumColor = 'CCCC00,s{black}',
     introTemplate = '',
     introColor = 'navy',
     aggregateConditions = false,

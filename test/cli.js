@@ -122,4 +122,54 @@ describe('CLI', function () {
     const results = await readFile(output, 'utf8');
     expect(results).to.equal(expected);
   });
+
+  it(
+    'Builds badge with `aggregateConditions` resulting in medium range',
+    async function () {
+      const badgeFile = 'aggregateConditions-medium.svg';
+      const output = join(resultsPath, badgeFile);
+      const {stdout, stderr} = await execFile(binFile, [
+        '--statementsThreshold', '30-90',
+        '--linesThreshold', '30-90',
+        '--branchesThreshold', '30-90',
+        '--functionsThreshold', '30-90',
+        '--aggregateConditions',
+        '--coveragePath', coveragePath,
+        '--output', output,
+        '--logging', 'verbose'
+      ]);
+      expect(stderr).to.equal('');
+      expect(stdout).to.contain('Statements')
+        .and.to.contain('%').and.to.contain('Done!');
+      expect(stdout).to.not.contain('Branches');
+      const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+      const results = await readFile(output, 'utf8');
+      expect(results).to.equal(expected);
+    }
+  );
+
+  it(
+    'Builds badge with `aggregateConditions` resulting in passing range',
+    async function () {
+      const badgeFile = 'aggregateConditions-passing.svg';
+      const output = join(resultsPath, badgeFile);
+      const {stdout, stderr} = await execFile(binFile, [
+        '--statementsThreshold', '30-50',
+        '--linesThreshold', '30-40',
+        '--branchesThreshold', '30-50',
+        '--functionsThreshold', '30-40',
+        '--aggregateConditions',
+        '--coveragePath', coveragePath,
+        '--output', output,
+        '--logging', 'verbose'
+      ]);
+      expect(stderr).to.equal('');
+      expect(stdout).to.contain('Statements')
+        .and.to.contain('%').and.to.contain('Done!');
+      expect(stdout).to.not.contain('Branches');
+      const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+      const results = await readFile(output, 'utf8');
+      expect(results).to.equal(expected);
+    }
+  );
 });

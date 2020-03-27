@@ -69,7 +69,8 @@ const optionDefinitions = [
     description: 'The badge background color when falling within a ' +
       'watermark range; follow by comma for additional (e.g., to add ' +
       'a stroke color) ' +
-      getChalkTemplateSingleEscape('defaults to "yellow,s{black}"'),
+      getChalkTemplateSingleEscape('defaults to "CCCC00,s{black}" (a ' +
+      'dark yellow background)'),
     typeLabel: getBracketedChalkTemplateEscape(
       'underline <typeName>=<color> (<color>: CSS-Color|Hex as: ' +
         'ffffff|Hex stroke as s{ffffff})'
