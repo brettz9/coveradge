@@ -61,4 +61,21 @@ describe('CLI', function () {
     const results = await readFile(output, 'utf8');
     expect(results).to.equal(expected);
   });
+
+  it('Gets badge with limited conditions', async function () {
+    const badgeFile = 'limited-conditions.svg';
+    const output = join(resultsPath, badgeFile);
+    const {stdout, stderr} = await execFile(binFile, [
+      '--conditions', 'statements,lines',
+      '--coveragePath', coveragePath,
+      '--output', output,
+      '--logging', 'verbose'
+    ]);
+    expect(stderr).to.equal('');
+    expect(stdout).to.contain('Statements')
+      .and.contain('%').and.contain('Done!');
+    const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+    const results = await readFile(output, 'utf8');
+    expect(results).to.equal(expected);
+  });
 });
