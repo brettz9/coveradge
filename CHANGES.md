@@ -1,6 +1,6 @@
 # CHANGES for coveradge
 
-## ?
+## 0.5.0
 
 - Breaking change: Minimum of Node 10
 - Breaking change: Switch to `badge-up` so we can use different colors
@@ -20,6 +20,8 @@
 - Enhancement: Allow reporting (with colors) for each condition or by aggregate
 - Enhancement: Allow intro section
 - Enhancement: Allow programmatic API to access `coverageSummary` JSON
+- Linting: As per latest ash-nazg
+- Docs: Add badges (license, testing, npm, lgtm)
 - Docs: Add coveradge badge for coveradge itself
 - Maintenance: 4 sp. for MD files
 - Testing: Begin Mocha + nyc tests

@@ -2,6 +2,7 @@ import {mkdirSync, readFile as rf} from 'fs';
 import {execFile as ef} from 'child_process';
 import {promisify} from 'util';
 import {join} from 'path';
+
 import rimraf from 'rimraf';
 
 const execFile = promisify(ef);
@@ -53,6 +54,20 @@ describe('CLI', function () {
     expect(results).to.equal(expected);
   });
 
+  it('Builds an SVG badge swithout logging', async function () {
+    const badgeFile = 'basic-badge.svg';
+    const output = join(resultsPath, badgeFile);
+    const {stdout, stderr} = await execFile(binFile, [
+      '--coveragePath', coveragePath,
+      '--output', output
+    ]);
+    expect(stderr).to.equal('');
+    expect(stdout).to.equal('');
+    const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+    const results = await readFile(output, 'utf8');
+    expect(results).to.equal(expected);
+  });
+
   it('Builds a PNG badge', async function () {
     const badgeFile = 'basic-badge.png';
     const output = join(resultsPath, badgeFile);
@@ -86,6 +101,50 @@ describe('CLI', function () {
     const results = await readFile(output, 'utf8');
     expect(results).to.equal(expected);
   });
+
+  it(
+    'Builds badge with `introTemplate` and default `introColor`',
+    async function () {
+      const badgeFile = 'introTemplate-default-introColor.svg';
+      const output = join(resultsPath, badgeFile);
+      const {stdout, stderr} = await execFile(binFile, [
+        // eslint-disable-next-line no-template-curly-in-string
+        '--introTemplate', '${"coverage".toUpperCase()}',
+        '--coveragePath', coveragePath,
+        '--output', output,
+        '--logging', 'verbose'
+      ]);
+      expect(stderr).to.equal('');
+      expect(stdout).to.contain('Statements')
+        .and.contain('%').and.contain('Done!');
+      const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+      const results = await readFile(output, 'utf8');
+      expect(results).to.equal(expected);
+    }
+  );
+
+  it(
+    'Builds badge with `introTemplate` and explicit `introColor`',
+    async function () {
+      const badgeFile = 'introTemplate-explicit-introColor.svg';
+      const output = join(resultsPath, badgeFile);
+      const {stdout, stderr} = await execFile(binFile, [
+        // eslint-disable-next-line no-template-curly-in-string
+        '--introTemplate', '${"coverage".toUpperCase()}',
+        '--introColor', 'red,s{blue}',
+        '--coveragePath', coveragePath,
+        '--output', output,
+        '--logging', 'verbose'
+      ]);
+      expect(stderr).to.equal('');
+      expect(stdout).to.contain('Statements')
+        .and.contain('red').and.contain('s{blue}')
+        .and.contain('%').and.contain('Done!');
+      const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+      const results = await readFile(output, 'utf8');
+      expect(results).to.equal(expected);
+    }
+  );
 
   it('Builds badge with limited conditions', async function () {
     const badgeFile = 'limited-conditions.svg';

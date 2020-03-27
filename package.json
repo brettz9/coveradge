@@ -1,6 +1,6 @@
 {
   "name": "coveradge",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Generate coverage badges during local nyc/istanbul execution",
   "main": "src/reporter.js",
   "bin": {
@@ -16,10 +16,14 @@
     "output": "./badges/coverage-badge.svg"
   },
   "scripts": {
+    "license-badge": "license-badger --corrections --uncategorizedLicenseTemplate \"\\${license} (\\${name} (\\${version}))\" --filteredTypes=nonempty --textTemplate \"License types\n(project, deps, and bundled devDeps)\" --packageJson --production badges/licenses-badge.svg",
+    "license-badge-dev": "license-badger --corrections --filteredTypes=nonempty --textTemplate \"License types\n(all devDeps)\" --allDevelopment badges/licenses-badge-dev.svg",
+    "license-badges": "npm run license-badge && npm run license-badge-dev",
     "eslint": "eslint --ext=js,md,html .",
     "cli": "./bin/index.js",
     "build-cli": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
-    "test-unit": "rimraf node_modules/.cache && nyc --reporter ../../src/reporter.js --reporter text --reporter json-summary mocha --require chai/register-expect --require esm test/*.js",
+    "mocha": "mocha --require chai/register-expect --require esm test/*.js --reporter-options configFile=mocha-multi-reporters.json",
+    "test-unit": "rimraf node_modules/.cache && nyc --reporter ../../src/reporter.js --reporter text --reporter json-summary npm run mocha",
     "test": "npm run eslint && npm run test-unit",
     "test-cov": "nyc npm run test-unit && npm run cli"
   },
@@ -49,7 +53,7 @@
     "command-line-publish": "^0.7.0",
     "convert-svg-to-png": "^0.5.0",
     "eslint": "^6.8.0",
-    "eslint-config-ash-nazg": "^17.5.0",
+    "eslint-config-ash-nazg": "^18.0.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-array-func": "^3.1.4",
     "eslint-plugin-compat": "^3.5.1",
@@ -64,9 +68,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^17.2.0",
+    "eslint-plugin-unicorn": "^18.0.0",
     "esm": "^3.2.25",
+    "license-badger": "^0.12.5",
     "mocha": "^7.1.1",
+    "mocha-badge-generator": "^0.5.2",
+    "mocha-multi-reporters": "^1.1.7",
     "nyc": "^15.0.0",
     "regenerator-runtime": "^0.13.5",
     "rimraf": "^3.0.2",
@@ -75,7 +82,7 @@
   "dependencies": {
     "@istanbuljs/load-nyc-config": "^1.0.0",
     "array-flat-polyfill": "^1.0.1",
-    "badge-up": "https://github.com/yahoo/badge-up#516d7a18924ce33000595a7c2b567c75890fa243",
+    "badge-up": "git+https://github.com/yahoo/badge-up.git#516d7a18924ce33000595a7c2b567c75890fa243",
     "command-line-basics": "^0.8.0",
     "es6-template-strings": "^2.0.1",
     "istanbul-lib-report": "^3.0.0"

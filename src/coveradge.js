@@ -63,12 +63,12 @@ async function coveradge (cfg) {
         nycConfig.watermarks[condition];
       // Priority to CLI condition threshold, then to nyc, then default to 100
       o['low_' + condition] = low
-        ? parseFloat(low)
+        ? Number.parseFloat(low)
         : watermark
           ? watermark[0]
           : nycConfig[condition] || 100;
       o['medium_' + condition] = medium
-        ? parseFloat(medium)
+        ? Number.parseFloat(medium)
         : watermark
           ? watermark[1]
           : nycConfig[condition] || 100;
@@ -191,7 +191,7 @@ async function coveradge (cfg) {
   const sections = [
     ...(introTemplate
       ? [[
-        introTemplate,
+        es6Templates(introTemplate),
         ...(typeof introColor === 'string'
           ? introColor.split(',')
           : introColor)

@@ -1,6 +1,18 @@
-<!--
-[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/coverage-badge.svg?sanitize=true)](coverage-badge.svg)
--->
+[![npm](https://img.shields.io/npm/v/coveradge.svg)](https://www.npmjs.com/package/coveradge)
+[![Dependencies](https://img.shields.io/david/brettz9/coveradge.svg)](https://david-dm.org/brettz9/coveradge)
+[![devDependencies](https://img.shields.io/david/dev/brettz9/coveradge.svg)](https://david-dm.org/brettz9/coveradge?type=dev)
+
+[![testing badge](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/tests-badge.svg?sanitize=true)](badges/tests-badge.svg)
+[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/coverage-badge.svg?sanitize=true)](badges/coverage-badge.svg)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/brettz9/coveradge/badge.svg)](https://snyk.io/test/github/brettz9/coveradge)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/brettz9/coveradge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/coveradge/alerts)
+[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/brettz9/coveradge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/coveradge/context:javascript)
+
+<!--[![License](https://img.shields.io/npm/l/coveradge.svg)](LICENSE-MIT.txt)-->
+[![Licenses badge](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/licenses-badge.svg?sanitize=true)](badges/licenses-badge.svg)
+
+(see also [licenses for dev. deps.](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/licenses-badge-dev.svg?sanitize=true))
 
 [![issuehunt-to-marktext](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/r/brettz9/coveradge)
 
