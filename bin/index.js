@@ -13,5 +13,9 @@ if (!optionDefinitions) { // cliBasics handled
   process.exit();
 }
 (async () => {
-await mainScript(optionDefinitions);
+try {
+  await mainScript(optionDefinitions);
+} catch (err) {
+  console.error(err);
+}
 })();

@@ -36,6 +36,10 @@ async function coveradge (cfg) {
     coverageSummary = require(pathResolve(process.cwd(), coveragePath))
   } = cfg;
 
+  if (!(new Set(['png', 'svg']).has(format))) {
+    throw new TypeError('Bad format');
+  }
+
   const log = (...args) => {
     if (logging !== 'off') {
       console.log(...args);
@@ -209,7 +213,7 @@ async function coveradge (cfg) {
 
   log('Finished writing temporary SVG file...');
 
-  if (format !== 'svg') {
+  if (format === 'png') {
     // Make non-global as optional
     // eslint-disable-next-line global-require, node/no-unpublished-require
     const {convertFile} = require('convert-svg-to-png');

@@ -29,6 +29,14 @@ describe('CLI', function () {
     );
   });
 
+  it('Throws with bad format', async function () {
+    const {stdout, stderr} = await execFile(binFile, [
+      '--format', 'badFormat'
+    ]);
+    expect(stdout).to.equal('');
+    expect(stderr).to.contain('Bad format');
+  });
+
   it('Builds an SVG badge', async function () {
     const badgeFile = 'basic-badge.svg';
     const output = join(resultsPath, badgeFile);
@@ -45,7 +53,24 @@ describe('CLI', function () {
     expect(results).to.equal(expected);
   });
 
-  it('Gets badge with branches threshold', async function () {
+  it('Builds a PNG badge', async function () {
+    const badgeFile = 'basic-badge.png';
+    const output = join(resultsPath, badgeFile);
+    const {stdout, stderr} = await execFile(binFile, [
+      '--format', 'png',
+      '--coveragePath', coveragePath,
+      '--output', output,
+      '--logging', 'verbose'
+    ]);
+    expect(stderr).to.equal('');
+    expect(stdout).to.contain('Statements')
+      .and.contain('%').and.contain('Done!');
+    const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+    const results = await readFile(output, 'utf8');
+    expect(results).to.equal(expected);
+  });
+
+  it('Builds badge with branches threshold', async function () {
     const badgeFile = 'branches-threshold.svg';
     const output = join(resultsPath, badgeFile);
     const {stdout, stderr} = await execFile(binFile, [
@@ -62,7 +87,7 @@ describe('CLI', function () {
     expect(results).to.equal(expected);
   });
 
-  it('Gets badge with limited conditions', async function () {
+  it('Builds badge with limited conditions', async function () {
     const badgeFile = 'limited-conditions.svg';
     const output = join(resultsPath, badgeFile);
     const {stdout, stderr} = await execFile(binFile, [
@@ -74,6 +99,25 @@ describe('CLI', function () {
     expect(stderr).to.equal('');
     expect(stdout).to.contain('Statements')
       .and.contain('%').and.contain('Done!');
+    const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
+    const results = await readFile(output, 'utf8');
+    expect(results).to.equal(expected);
+  });
+
+  it('Builds badge with `aggregateConditions`', async function () {
+    const badgeFile = 'aggregateConditions.svg';
+    const output = join(resultsPath, badgeFile);
+    const {stdout, stderr} = await execFile(binFile, [
+      '--statementsThreshold', '30',
+      '--aggregateConditions',
+      '--coveragePath', coveragePath,
+      '--output', output,
+      '--logging', 'verbose'
+    ]);
+    expect(stderr).to.equal('');
+    expect(stdout).to.not.contain('Statements');
+    expect(stdout).to.contain('Branches')
+      .and.to.contain('%').and.to.contain('Done!');
     const expected = await readFile(join(fixturesPath, badgeFile), 'utf8');
     const results = await readFile(output, 'utf8');
     expect(results).to.equal(expected);
