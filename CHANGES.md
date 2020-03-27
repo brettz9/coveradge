@@ -3,6 +3,7 @@
 ## ?
 
 - npm: Ignore mocha files
+- npm: Update devDeps
 
 ## 0.5.0
 
