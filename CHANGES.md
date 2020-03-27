@@ -1,5 +1,9 @@
 # CHANGES for coveradge
 
+## ?
+
+- npm: Ignore mocha files
+
 ## 0.5.0
 
 - Breaking change: Minimum of Node 10
