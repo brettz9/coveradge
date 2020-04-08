@@ -93,7 +93,3 @@ That's it!
   - [mocha-reporter-badge](https://github.com/albanm/mocha-reporter-badge) (MIT)
 - Generate badges of license types (e.g., by permissiveness)
   - [license-badger](https://github.com/brettz9/license-badger) (MIT)
-
-## To-dos
-
-1. Add tests and coverage (including badge commented out above) to this repo
