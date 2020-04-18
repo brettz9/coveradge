@@ -88,8 +88,13 @@ That's it!
 
 ## See also
 
-- Locally generated Mocha test result badges
-  - [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) (MIT)
-  - [mocha-reporter-badge](https://github.com/albanm/mocha-reporter-badge) (MIT)
-- Generate badges of license types (e.g., by permissiveness)
-  - [license-badger](https://github.com/brettz9/license-badger) (MIT)
+- [eslint-formatter-badger](https://github.com/brettz9/eslint-formatter-badger) -
+    Locally created badges indicating linting results (as run against your project
+    and/or your dependencies)
+- [filesize-badger](https://github.com/brettz9/filesize-badger) - Locally created
+    badges indicating file size (also buildable as part of Rollup routine)
+- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) - Locally
+    created badges for Mocha test results
+- [license-badger](https://github.com/brettz9/license-badger) - Locally-created
+    badges indicating license types (by degree of permissiveness) used
+    within or required by the project.
