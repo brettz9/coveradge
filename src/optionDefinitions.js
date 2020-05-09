@@ -1,3 +1,4 @@
+/* eslint-disable node/exports-style */
 'use strict';
 
 const pkg = require('../package.json');

@@ -20,7 +20,7 @@ class LintBadgeReport extends ReportBase {
   constructor (opts) {
     super();
 
-    this.opts = opts || {};
+    this.opts = opts;
   }
 
   /**
@@ -29,7 +29,7 @@ class LintBadgeReport extends ReportBase {
    * @returns {Promise<void>}
    */
   async onStart (node, context) {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
+    // eslint-disable-next-line node/global-require, import/no-dynamic-require
     const pkg = require(join(this.opts.projectRoot, 'package.json'));
     const coverageSummary = node.getCoverageSummary();
 

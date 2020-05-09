@@ -1,7 +1,12 @@
 # CHANGES for coveradge
 
-## ?
+## 0.6.0
 
+- Refactoring: Remove unneeded code
+- Linting: As per latest ash-nazg; apply sauron-node rather than sauron
+- npm: Change to stable badge-up version
+- npm: Change to maintained `cypress-multi-reporters`
+- npm: Add `prepare` script
 - npm: Ignore mocha files
 - npm: Update devDeps
 

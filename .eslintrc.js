@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   env: {
     node: true,
@@ -7,7 +9,7 @@ module.exports = {
     polyfills: [
     ]
   },
-  extends: ['ash-nazg/sauron', 'plugin:node/recommended-script'],
+  extends: ['ash-nazg/sauron-node', 'plugin:node/recommended-script'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -16,11 +18,10 @@ module.exports = {
     {
       files: '*.md',
       rules: {
-
       }
     },
     {
-    files: '*.html',
+      files: '*.html',
       rules: {
         'import/unambiguous': 0
       }

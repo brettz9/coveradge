@@ -32,7 +32,7 @@ async function coveradge (cfg) {
 
     // `coverageSummary` is not available by CLI but gets
     //  default (could allow JSON string, but probably not worth it)
-    // eslint-disable-next-line global-require, import/no-dynamic-require
+    // eslint-disable-next-line node/global-require, import/no-dynamic-require
     coverageSummary = require(pathResolve(process.cwd(), coveragePath))
   } = cfg;
 
@@ -215,7 +215,7 @@ async function coveradge (cfg) {
 
   if (format === 'png') {
     // Make non-global as optional
-    // eslint-disable-next-line global-require, node/no-unpublished-require
+    // eslint-disable-next-line node/global-require, node/no-unpublished-require
     const {convertFile} = require('convert-svg-to-png');
     const outputFile = await convertFile(
       pathResolve(process.cwd(), svgFilePath)
