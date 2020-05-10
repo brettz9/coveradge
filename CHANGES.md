@@ -1,5 +1,10 @@
 # CHANGES for coveradge
 
+## ?
+
+- Docs: Update badges per updated badge devDeps.
+- npm: Update badge devDeps.
+
 ## 0.6.0
 
 - Refactoring: Remove unneeded code
