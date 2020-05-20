@@ -2,6 +2,7 @@
 
 ## ?
 
+- Linting (LGTM): Add `lgtm.yml`
 - Docs: Update badges per updated badge devDeps.
 - npm: Update badge devDeps.
 
