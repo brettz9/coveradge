@@ -4,7 +4,8 @@
 
 - Linting (LGTM): Add `lgtm.yml`
 - Docs: Update badges per updated badge devDeps.
-- npm: Update badge devDeps.
+- npm: Change to maintained `mocha-multi-reporters`
+- npm: Update istanbuljs/load-nyc-config and devDeps
 
 ## 0.6.0
 
