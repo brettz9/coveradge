@@ -13,6 +13,7 @@ const {loadNycConfig} = require('@istanbuljs/load-nyc-config');
 
 /**
  * @param {CoveradgeOptions} cfg
+ * @throws {TypeError}
  * @returns {void}
  */
 async function coveradge (cfg) {

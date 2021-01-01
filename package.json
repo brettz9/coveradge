@@ -26,7 +26,8 @@
     "mocha": "mocha --require chai/register-expect --require esm test/*.js --reporter-options configFile=mocha-multi-reporters.json",
     "test-unit": "rimraf node_modules/.cache && nyc --reporter ../../src/reporter.js --reporter text --reporter json-summary npm run mocha",
     "test-nocov": "npm run eslint && npm run test-unit",
-    "test": "nyc npm run test-unit && npm run cli"
+    "nyc": "nyc npm run test-unit && npm run cli",
+    "test": "npm run eslint && npm run nyc"
   },
   "repository": {
     "type": "git",

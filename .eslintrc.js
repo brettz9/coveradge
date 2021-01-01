@@ -51,6 +51,9 @@ module.exports = {
     'import/no-commonjs': 0,
     'no-process-exit': 0, // Re-added by node/recommended-script, so disable
     'compat/compat': 0,
-    'no-console': 0
+    'no-console': 0,
+
+    // Disable for now
+    'eslint-comments/require-description': 0
   }
 };

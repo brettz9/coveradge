@@ -2,6 +2,7 @@
 
 ## ?
 
+- Linting (ESLint): As per latest ash-nazg
 - Linting (LGTM): Add `lgtm.yml`
 - Docs: Update badges per updated badge devDeps.
 - npm: Change to maintained `mocha-multi-reporters`
