@@ -54,7 +54,7 @@ describe('CLI', function () {
     expect(results).to.equal(expected);
   });
 
-  it('Builds an SVG badge swithout logging', async function () {
+  it('Builds an SVG badge without logging', async function () {
     const badgeFile = 'basic-badge.svg';
     const output = join(resultsPath, badgeFile);
     const {stdout, stderr} = await execFile(binFile, [

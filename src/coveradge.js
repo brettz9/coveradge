@@ -1,8 +1,5 @@
 'use strict';
 
-// Todo[engine:node@>=12.0.0]: Remove flat/flatMap polyfill
-require('array-flat-polyfill');
-
 // Tried promisified async methods but were puzzlingly not working
 const {writeFileSync, unlinkSync} = require('fs');
 const {resolve: pathResolve} = require('path');

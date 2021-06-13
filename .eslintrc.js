@@ -9,17 +9,12 @@ module.exports = {
     polyfills: [
     ]
   },
-  extends: ['ash-nazg/sauron-node', 'plugin:node/recommended-script'],
+  extends: ['ash-nazg/sauron-node-script-overrides'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
   overrides: [
-    {
-      files: '*.md',
-      rules: {
-      }
-    },
     {
       files: '*.html',
       rules: {

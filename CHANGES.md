@@ -1,12 +1,22 @@
 # CHANGES for coveradge
 
-## ?
+## 0.7.0
+
+### User-impacting
+
+- Breaking change: Require Node 12
+- Docs: Update badges per updated badge devDeps.
+- npm: Update `istanbuljs/load-nyc-config`
+
+### Dev-impacting
 
 - Linting (ESLint): As per latest ash-nazg
 - Linting (LGTM): Add `lgtm.yml`
-- Docs: Update badges per updated badge devDeps.
 - npm: Change to maintained `mocha-multi-reporters`
-- npm: Update istanbuljs/load-nyc-config and devDeps
+- npm: Use `prepublishOnly` script over `prepare`
+- npm: Fix reporter path for pnpm
+- npm: Switch to pnpm
+- npm: Update devDeps.
 
 ## 0.6.0
 
