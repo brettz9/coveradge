@@ -1,9 +1,18 @@
+// This approach no longer works because from CJS, we can only get imports
+//  asynchronously, and the istanbul-reports code isn't (async)
+//  promise-friendly in its `onStart` triggering.
+
+// This file currently not importable by istanbul
+// import {readFile} from 'fs/promises';
+// import {join} from 'path';
+// import {ReportBase} from 'istanbul-lib-report';
+// import coveradge from './coveradge.js';
+
 'use strict';
 
+const {readFile} = require('fs/promises');
 const {join} = require('path');
 const {ReportBase} = require('istanbul-lib-report');
-
-const coveradge = require('./coveradge.cjs');
 
 /**
 * @typedef {PlainObject} CoveradgeReporterOptions
@@ -29,13 +38,13 @@ class LintBadgeReport extends ReportBase {
    * @returns {Promise<void>}
    */
   async onStart (node, context) {
-    // This works for a short-term Promise, but as not awaited, it doesn't work
-    //  if longer, e.g., if converting our source fully to ESM and dynamically
-    //  importing here
-    // eslint-disable-next-line max-len -- Long
-    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-decided
-    const pkg = require(join(this.opts.projectRoot, 'package.json'));
     const coverageSummary = node.getCoverageSummary();
+
+    const coveradge = await import('./coveradge.js');
+
+    const pkg = JSON.parse(
+      await readFile(join(this.opts.projectRoot, 'package.json'))
+    );
 
     await coveradge({
       ...pkg.coveradgeOptions,

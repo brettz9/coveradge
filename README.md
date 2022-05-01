@@ -77,9 +77,10 @@ Alternatively, e.g., if you need to build a coveradge badge after testing has
 already finished for a merged coverage file, add a call to `coveradge` in your
 `package.json` `scripts` at some point after running `nyc`.
 
-3. Add any desired options. If using as an nyc `--reporter`, then add the
+3. Add any desired options. <!-- If using as an nyc `--reporter`, then add the
 options to `package.json` instead of a `coveradgeOptions` property. Otherwise,
-pass as CLI or programmatic options. (See below for the choices.)
+-->
+Pass as CLI or programmatic options. (See below for the choices.)
 
 4. Add the badge to your README (e.g.,
 `[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`)

@@ -4,7 +4,7 @@ import {join, dirname} from 'path';
 import {fileURLToPath} from 'url';
 
 import {cliBasics} from 'command-line-basics';
-import mainScript from '../src/coveradge.cjs';
+import mainScript from '../src/coveradge.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

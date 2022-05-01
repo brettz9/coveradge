@@ -1,12 +1,11 @@
-'use strict';
+import {readFile, writeFile, unlink} from 'fs/promises';
+import {resolve as pathResolve} from 'path';
 
-// Tried promisified async methods but were puzzlingly not working
-const {writeFileSync, unlinkSync} = require('fs');
-const {resolve: pathResolve} = require('path');
+import BadgeUp from '@rpl/badge-up';
+import es6Templates from 'es6-template-strings';
+import {loadNycConfig} from '@istanbuljs/load-nyc-config';
 
-const badgeUp = require('@rpl/badge-up').v2;
-const es6Templates = require('es6-template-strings');
-const {loadNycConfig} = require('@istanbuljs/load-nyc-config');
+const badgeUp = BadgeUp.v2;
 
 /**
  * @param {CoveradgeOptions} cfg
@@ -30,9 +29,9 @@ async function coveradge (cfg) {
 
     // `coverageSummary` is not available by CLI but gets
     //  default (could allow JSON string, but probably not worth it)
-    // eslint-disable-next-line max-len -- Long
-    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-based
-    coverageSummary = require(pathResolve(process.cwd(), coveragePath))
+    coverageSummary = JSON.parse(
+      await readFile(pathResolve(process.cwd(), coveragePath))
+    )
   } = cfg;
 
   if (!(new Set(['png', 'svg']).has(format))) {
@@ -41,7 +40,6 @@ async function coveradge (cfg) {
 
   const log = (...args) => {
     if (logging !== 'off') {
-      // eslint-disable-next-line no-console -- Logging feature
       console.log(...args);
     }
   };
@@ -208,24 +206,23 @@ async function coveradge (cfg) {
 
   const svgFilePath = `${outputBase}.svg`;
 
-  writeFileSync(pathResolve(process.cwd(), svgFilePath), badge + '\n');
+  await writeFile(pathResolve(process.cwd(), svgFilePath), badge + '\n');
 
   log('Finished writing temporary SVG file...');
 
   if (format === 'png') {
     // Make non-global as optional
-    // eslint-disable-next-line max-len -- Long
-    // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
-    const {convertFile} = require('convert-svg-to-png');
+    // eslint-disable-next-line n/no-unpublished-import
+    const {convertFile} = (await import('convert-svg-to-png')).default;
     const outputFile = await convertFile(
       pathResolve(process.cwd(), svgFilePath)
     );
     log('Wrote file', outputFile);
-    unlinkSync(pathResolve(process.cwd(), svgFilePath));
+    await unlink(pathResolve(process.cwd(), svgFilePath));
     log('Cleaned up temporary SVG file');
   }
 
   log('Done!');
 }
 
-module.exports = coveradge;
+export default coveradge;

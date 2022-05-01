@@ -5,7 +5,7 @@ import {fileURLToPath} from 'url';
 
 import rimraf from 'rimraf';
 
-import coveradge from '../src/coveradge.cjs';
+import coveradge from '../src/coveradge.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
