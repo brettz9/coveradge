@@ -1,5 +1,17 @@
 # CHANGES for coveradge
 
+## 0.8.0
+
+### User-impacting
+
+BREAKING: Requires Node 14+
+- chore: updates `command-line-basics`
+
+### Dev-impacting
+
+- refactor: Move package to ESM where possible
+- chore: updates devDeps.
+
 ## 0.7.0
 
 ### User-impacting

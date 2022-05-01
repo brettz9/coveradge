@@ -1,11 +1,13 @@
-import {mkdirSync, readFile as rf} from 'fs';
-import {promisify} from 'util';
-import {join} from 'path';
+import {mkdir, readFile} from 'fs/promises';
+
+import {join, dirname} from 'path';
+import {fileURLToPath} from 'url';
 
 import rimraf from 'rimraf';
-import coveradge from '../src/coveradge.js';
 
-const readFile = promisify(rf);
+import coveradge from '../src/coveradge.cjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const fixturesPath = join(__dirname, 'fixtures');
 const resultsPath = join(__dirname, 'results');
@@ -15,7 +17,7 @@ describe('Programmatic', function () {
   this.timeout(10000);
   before((done) => {
     rimraf(resultsPath, () => {
-      mkdirSync(resultsPath);
+      mkdir(resultsPath);
       done();
     });
   });

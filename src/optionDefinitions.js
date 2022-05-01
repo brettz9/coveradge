@@ -1,7 +1,11 @@
-/* eslint-disable node/exports-style */
-'use strict';
+import {readFile} from 'fs/promises';
 
-const pkg = require('../package.json');
+import {join, dirname} from 'path';
+import {fileURLToPath} from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const pkg = JSON.parse(await readFile(join(__dirname, '../package.json')));
 
 const getChalkTemplateSingleEscape = (s) => {
   return s.replace(/[{}\\]/gu, (ch) => {
@@ -188,5 +192,4 @@ const cliSections = [
   }
 ];
 
-exports.definitions = optionDefinitions;
-exports.sections = cliSections;
+export {optionDefinitions as definitions, cliSections as sections};

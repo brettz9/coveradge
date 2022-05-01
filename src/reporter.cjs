@@ -3,7 +3,7 @@
 const {join} = require('path');
 const {ReportBase} = require('istanbul-lib-report');
 
-const coveradge = require('./coveradge.js');
+const coveradge = require('./coveradge.cjs');
 
 /**
 * @typedef {PlainObject} CoveradgeReporterOptions
@@ -29,7 +29,11 @@ class LintBadgeReport extends ReportBase {
    * @returns {Promise<void>}
    */
   async onStart (node, context) {
-    // eslint-disable-next-line node/global-require, import/no-dynamic-require
+    // This works for a short-term Promise, but as not awaited, it doesn't work
+    //  if longer, e.g., if converting our source fully to ESM and dynamically
+    //  importing here
+    // eslint-disable-next-line max-len -- Long
+    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-decided
     const pkg = require(join(this.opts.projectRoot, 'package.json'));
     const coverageSummary = node.getCoverageSummary();
 
@@ -42,4 +46,5 @@ class LintBadgeReport extends ReportBase {
   }
 }
 
+// export default LintBadgeReport;
 module.exports = LintBadgeReport;

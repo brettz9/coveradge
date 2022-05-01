@@ -25,12 +25,13 @@ async function coveradge (cfg) {
     output = 'coverage-badge',
     logging = 'off',
     coveragePath = './coverage/coverage-summary.json',
-    // eslint-disable-next-line no-template-curly-in-string
+    // eslint-disable-next-line no-template-curly-in-string -- User templates
     textTemplate = '${condition} ${conditionPct}%',
 
     // `coverageSummary` is not available by CLI but gets
     //  default (could allow JSON string, but probably not worth it)
-    // eslint-disable-next-line node/global-require, import/no-dynamic-require
+    // eslint-disable-next-line max-len -- Long
+    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-based
     coverageSummary = require(pathResolve(process.cwd(), coveragePath))
   } = cfg;
 
@@ -40,6 +41,7 @@ async function coveradge (cfg) {
 
   const log = (...args) => {
     if (logging !== 'off') {
+      // eslint-disable-next-line no-console -- Logging feature
       console.log(...args);
     }
   };
@@ -202,8 +204,7 @@ async function coveradge (cfg) {
 
   const badge = await badgeUp(sections);
 
-  // eslint-disable-next-line prefer-named-capture-group
-  const outputBase = output.replace(/\.(png|svg)$/u, '');
+  const outputBase = output.replace(/\.(?:png|svg)$/u, '');
 
   const svgFilePath = `${outputBase}.svg`;
 
@@ -213,7 +214,8 @@ async function coveradge (cfg) {
 
   if (format === 'png') {
     // Make non-global as optional
-    // eslint-disable-next-line node/global-require, node/no-unpublished-require
+    // eslint-disable-next-line max-len -- Long
+    // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
     const {convertFile} = require('convert-svg-to-png');
     const outputFile = await convertFile(
       pathResolve(process.cwd(), svgFilePath)

@@ -2,19 +2,38 @@
 
 module.exports = {
   env: {
+    commonjs: true,
     node: true,
     es6: true
   },
   settings: {
     polyfills: [
+      'Number.parseFloat'
     ]
   },
-  extends: ['ash-nazg/sauron-node-script-overrides'],
+  extends: ['ash-nazg/sauron-node-overrides'],
   globals: {
+    require: 'readonly',
+    module: 'readonly',
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
   overrides: [
+    {
+      files: '**/*.cjs',
+      extends: ['ash-nazg/sauron-node-script-overrides'],
+      env: {
+        node: true,
+        commonjs: true
+      },
+      globals: {
+        __dirname: 'readonly'
+      },
+      rules: {
+        // Not sure why showing up, as not a browser environment
+        'no-implicit-globals': 'off'
+      }
+    },
     {
       files: '*.html',
       rules: {
@@ -22,12 +41,8 @@ module.exports = {
       }
     },
     {
-      extends: [
-        'plugin:node/recommended-module'
-      ],
       files: ['test/**'],
       globals: {
-        __dirname: true,
         expect: true
       },
       env: {
@@ -39,12 +54,12 @@ module.exports = {
     }
   ],
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2022
   },
   rules: {
     // No need in Node-only
     'import/no-commonjs': 0,
-    'no-process-exit': 0, // Re-added by node/recommended-script, so disable
+    'no-process-exit': 0, // Re-added by n/recommended-script, so disable
     'compat/compat': 0,
     'no-console': 0,
 

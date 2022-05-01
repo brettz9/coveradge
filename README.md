@@ -68,17 +68,23 @@ You may optionally set [coverage thresholds](https://github.com/istanbuljs/nyc#c
 }
 ```
 
-The watermarks, if present, will be given precedence over the regular thresholds for determining color (though not as high of a precedence as command-line thresholds).
+The watermarks, if present, will be given precedence over the regular
+thresholds for determining color (though not as high of a precedence as
+command-line thresholds).
 
-2. Add `--reporter coveradge` at the beginning of the `nyc` call. Alternatively,
-e.g., if you need to build a coveradge badge after testing has already finished
-for a merged coverage file, add a call to `coveradge` in your `package.json`
-`scripts` at some point after running `nyc`.
+2. Add `--reporter coveradge` at the beginning of the `nyc` call.
+Alternatively, e.g., if you need to build a coveradge badge after testing has
+already finished for a merged coverage file, add a call to `coveradge` in your
+`package.json` `scripts` at some point after running `nyc`.
 
-3. Add any desired options. If using as an nyc `--reporter`, then add the options to `package.json` instead of a `coveradgeOptions` property. Otherwise, pass as CLI
-or programmatic options. (See below for the choices.)
+3. Add any desired options. If using as an nyc `--reporter`, then add the
+options to `package.json` instead of a `coveradgeOptions` property. Otherwise,
+pass as CLI or programmatic options. (See below for the choices.)
 
-4. Add the badge to your README (e.g., `[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`) or for a link that will also work on npmjs.com: `[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/coverage-badge.svg?sanitize=true)](coverage-badge.svg)`
+4. Add the badge to your README (e.g.,
+`[![coverage badge](coverage-badge.svg)](coverage-badge.svg)`)
+or for a link that will also work on npmjs.com:
+`[![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/coverage-badge.svg?sanitize=true)](coverage-badge.svg)`
 
 That's it!
 
@@ -89,12 +95,13 @@ That's it!
 ## See also
 
 - [eslint-formatter-badger](https://github.com/brettz9/eslint-formatter-badger) -
-    Locally created badges indicating linting results (as run against your project
-    and/or your dependencies)
-- [filesize-badger](https://github.com/brettz9/filesize-badger) - Locally created
-    badges indicating file size (also buildable as part of Rollup routine)
-- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) - Locally
-    created badges for Mocha test results
+    Locally created badges indicating linting results (as run against your
+    project and/or your dependencies)
+- [filesize-badger](https://github.com/brettz9/filesize-badger) - Locally
+    created badges indicating file size (also buildable as part of Rollup
+    routine)
+- [mocha-badge-generator](https://github.com/ianpogi5/mocha-badge-generator) -
+    Locally created badges for Mocha test results
 - [license-badger](https://github.com/brettz9/license-badger) - Locally-created
     badges indicating license types (by degree of permissiveness) used
     within or required by the project.

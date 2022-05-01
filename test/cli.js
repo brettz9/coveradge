@@ -1,12 +1,16 @@
-import {mkdirSync, readFile as rf} from 'fs';
+import {mkdir, readFile} from 'fs/promises';
+
+import {join, dirname} from 'path';
+import {fileURLToPath} from 'url';
+
 import {execFile as ef} from 'child_process';
 import {promisify} from 'util';
-import {join} from 'path';
 
 import rimraf from 'rimraf';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const execFile = promisify(ef);
-const readFile = promisify(rf);
 
 const binFile = join(__dirname, '../bin/index.js');
 const fixturesPath = join(__dirname, 'fixtures');
@@ -16,8 +20,8 @@ const coveragePath = './test/fixtures/coverage-summary.json';
 describe('CLI', function () {
   this.timeout(10000);
   before((done) => {
-    rimraf(resultsPath, () => {
-      mkdirSync(resultsPath);
+    rimraf(resultsPath, async () => {
+      await mkdir(resultsPath);
       done();
     });
   });
@@ -27,6 +31,20 @@ describe('CLI', function () {
     expect(stderr).to.equal('');
     expect(stdout).to.contain(
       'Generate coverage badges during local'
+    );
+  });
+
+  it('can be used as regular reporter', async function () {
+    const {stdout, stderr} = await execFile('nyc', [
+      '--reporter',
+      // Has to be relative to `istanbul-reports`
+      '../../../../../src/reporter.cjs',
+      'node',
+      './test-helpers/sample.cjs'
+    ]);
+    expect(stderr).to.equal('');
+    expect(stdout).to.contain(
+      'B branch test'
     );
   });
 
