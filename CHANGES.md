@@ -1,5 +1,11 @@
 # CHANGES for coveradge
 
+## 0.8.1
+
+### User-impacting
+
+- chore: use fork of `badge-up` that drops vulernabilities
+
 ## 0.8.0
 
 ### User-impacting

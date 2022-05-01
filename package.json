@@ -1,6 +1,6 @@
 {
   "name": "coveradge",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Generate coverage badges during local nyc/istanbul execution",
   "type": "module",
   "main": "src/reporter.cjs",
@@ -84,7 +84,7 @@
   "dependencies": {
     "@istanbuljs/load-nyc-config": "^1.1.0",
     "array-flat-polyfill": "^1.0.1",
-    "badge-up": "^3.0.0",
+    "@cumulusds/badge-up": "^2.3.0",
     "command-line-basics": "^1.0.2",
     "es6-template-strings": "^2.0.1",
     "istanbul-lib-report": "^3.0.0"
