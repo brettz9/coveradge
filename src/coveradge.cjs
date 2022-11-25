@@ -4,7 +4,7 @@
 const {writeFileSync, unlinkSync} = require('fs');
 const {resolve: pathResolve} = require('path');
 
-const badgeUp = require('badge-up').v2;
+const badgeUp = require('@rpl/badge-up').v2;
 const es6Templates = require('es6-template-strings');
 const {loadNycConfig} = require('@istanbuljs/load-nyc-config');
 

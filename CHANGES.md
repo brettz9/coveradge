@@ -1,5 +1,9 @@
 # CHANGES for coveradge
 
+## 0.8.2
+
+- fix: switch to rpl/badge-up
+
 ## 0.8.1
 
 ### User-impacting
