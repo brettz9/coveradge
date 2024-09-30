@@ -8,13 +8,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(await readFile(join(__dirname, '../package.json')));
 
 const getChalkTemplateSingleEscape = (s) => {
-  return s.replace(/[{}\\]/gu, (ch) => {
+  return s.replaceAll(/[{}\\]/gu, (ch) => {
     return `\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
 
 const getChalkTemplateEscape = (s) => {
-  return s.replace(/[{}\\]/gu, (ch) => {
+  return s.replaceAll(/[{}\\]/gu, (ch) => {
     return `\\\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
@@ -23,12 +23,12 @@ const getBracketedChalkTemplateEscape = (s) => {
   return '{' + getChalkTemplateEscape(s) + '}';
 };
 
-/* eslint-disable jsdoc/require-property */
+/* eslint-disable jsdoc/require-property -- Ok */
 // Todo: We really need a comamnd-line-args-TO-typedef-jsdoc generator!
 /**
-* @typedef {PlainObject} CoveradgeOptions
+* @typedef {object} CoveradgeOptions
 */
-/* eslint-enable jsdoc/require-property */
+/* eslint-enable jsdoc/require-property -- Ok */
 
 const optionDefinitions = [
   {
@@ -109,7 +109,8 @@ const optionDefinitions = [
       'of `conditions` if `aggregateConditions` is set and the currently ' +
       'iterated condition otherwise). Defaults to: ' +
       getChalkTemplateSingleEscape(
-        // eslint-disable-next-line no-template-curly-in-string
+        // eslint-disable-next-line @stylistic/max-len -- Long
+        // eslint-disable-next-line no-template-curly-in-string -- Our own templates
         '"${condition} ${conditionPct}%".'
       ),
     typeLabel: '{underline textTemplate}'

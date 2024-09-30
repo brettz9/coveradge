@@ -3,3 +3,4 @@ test
 coverage
 mocha-multi-reporters.json
 .mocharc.js
+eslint.config.js

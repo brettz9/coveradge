@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- Ok */
 'use strict';
 
 const {join} = require('path');
@@ -32,8 +33,7 @@ class LintBadgeReport extends ReportBase {
     // This works for a short-term Promise, but as not awaited, it doesn't work
     //  if longer, e.g., if converting our source fully to ESM and dynamically
     //  importing here
-    // eslint-disable-next-line max-len -- Long
-    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-decided
+    // eslint-disable-next-line n/global-require -- User-decided
     const pkg = require(join(this.opts.projectRoot, 'package.json'));
     const coverageSummary = node.getCoverageSummary();
 

@@ -1,9 +1,9 @@
 import {mkdir, readFile} from 'fs/promises';
-
 import {join, dirname} from 'path';
 import {fileURLToPath} from 'url';
 
-import rimraf from 'rimraf';
+import {expect} from 'chai';
+import {rimraf} from 'rimraf';
 
 import coveradge from '../src/coveradge.cjs';
 
@@ -15,11 +15,9 @@ const coveragePath = './test/fixtures/coverage-summary.json';
 
 describe('Programmatic', function () {
   this.timeout(10000);
-  before((done) => {
-    rimraf(resultsPath, () => {
-      mkdir(resultsPath);
-      done();
-    });
+  before(async () => {
+    await rimraf(resultsPath);
+    mkdir(resultsPath);
   });
   it('Works with watermark config', async function () {
     const badgeFile = 'watermark-config.svg';
@@ -71,7 +69,8 @@ describe('Programmatic', function () {
     const badgeFile = 'introTemplate-introColor-array.svg';
     const output = join(resultsPath, badgeFile);
     await coveradge({
-      // eslint-disable-next-line no-template-curly-in-string
+      // eslint-disable-next-line @stylistic/max-len -- Long
+      // eslint-disable-next-line no-template-curly-in-string -- Using templates ourselves
       introTemplate: '${"coverage".toUpperCase()}',
       introColor: ['yellow', 's{red}'],
       coveragePath,

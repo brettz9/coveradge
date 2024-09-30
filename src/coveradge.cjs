@@ -1,3 +1,4 @@
+/* eslint-disable n/no-sync -- Needed */
 'use strict';
 
 // Tried promisified async methods but were puzzlingly not working
@@ -30,8 +31,7 @@ async function coveradge (cfg) {
 
     // `coverageSummary` is not available by CLI but gets
     //  default (could allow JSON string, but probably not worth it)
-    // eslint-disable-next-line max-len -- Long
-    // eslint-disable-next-line n/global-require, import/no-dynamic-require -- User-based
+    // eslint-disable-next-line n/global-require -- User-based
     coverageSummary = require(pathResolve(process.cwd(), coveragePath))
   } = cfg;
 
@@ -41,7 +41,6 @@ async function coveradge (cfg) {
 
   const log = (...args) => {
     if (logging !== 'off') {
-      // eslint-disable-next-line no-console -- Logging feature
       console.log(...args);
     }
   };
@@ -214,7 +213,7 @@ async function coveradge (cfg) {
 
   if (format === 'png') {
     // Make non-global as optional
-    // eslint-disable-next-line max-len -- Long
+    // eslint-disable-next-line @stylistic/max-len -- Long
     // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
     const {convertFile} = require('convert-svg-to-png');
     const outputFile = await convertFile(

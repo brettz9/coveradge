@@ -21,7 +21,7 @@
     "license-badge": "license-badger --corrections --uncategorizedLicenseTemplate \"\\${license} (\\${name} (\\${version}))\" --filteredTypes=nonempty --textTemplate \"License types\n(project, deps, and bundled devDeps)\" --packageJson --production badges/licenses-badge.svg",
     "license-badge-dev": "license-badger --corrections --filteredTypes=nonempty --textTemplate \"License types\n(all devDeps)\" --allDevelopment badges/licenses-badge-dev.svg",
     "license-badges": "npm run license-badge && npm run license-badge-dev",
-    "eslint": "eslint --ext=js,cjs,md,html .",
+    "eslint": "eslint .",
     "lint": "npm run eslint --",
     "cli": "./bin/index.js",
     "build-cli": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
@@ -44,49 +44,33 @@
   "contributors": [],
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "bugs": {
     "url": "https://github.com/brettz9/coveradge/issues"
   },
   "homepage": "https://github.com/brettz9/coveradge#readme",
   "devDependencies": {
-    "@brettz9/eslint-plugin": "^1.0.4",
-    "c8": "^7.12.0",
-    "chai": "^4.3.7",
+    "c8": "^10.1.2",
+    "chai": "^5.1.1",
     "command-line-publish": "^1.1.0",
     "convert-svg-to-png": "^0.6.4",
-    "eslint": "^8.28.0",
-    "eslint-config-ash-nazg": "^34.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-compat": "^4.0.2",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.6.4",
-    "eslint-plugin-markdown": "^3.0.0",
-    "eslint-plugin-n": "^15.5.1",
-    "eslint-plugin-no-unsanitized": "^4.0.2",
-    "eslint-plugin-no-use-extend-native": "^0.5.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-sonarjs": "^0.16.0",
-    "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-unicorn": "^45.0.0",
-    "license-badger": "^0.19.0",
-    "mocha": "^10.1.0",
-    "mocha-badge-generator": "^0.10.6",
+    "eslint": "^9.11.1",
+    "eslint-config-ash-nazg": "^36.18.1",
+    "license-badger": "^0.21.1",
+    "mocha": "^10.7.3",
+    "mocha-badge-generator": "^0.11.0",
     "mocha-multi-reporters": "^1.5.1",
-    "nyc": "^15.1.0",
-    "regenerator-runtime": "^0.13.11",
-    "rimraf": "^3.0.2"
+    "nyc": "^17.1.0",
+    "regenerator-runtime": "^0.14.1",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@istanbuljs/load-nyc-config": "^1.1.0",
     "@rpl/badge-up": "^3.0.0",
     "array-flat-polyfill": "^1.0.1",
-    "command-line-basics": "^1.1.0",
+    "command-line-basics": "^2.0.1",
     "es6-template-strings": "^2.0.1",
-    "istanbul-lib-report": "^3.0.0"
+    "istanbul-lib-report": "^3.0.1"
   }
 }
