@@ -1,5 +1,12 @@
 # CHANGES for coveradge
 
+## 0.9.0 (unreleased)
+
+BREAKING:
+- Requires Node ^20.11.0 || >=22.0.0
+
+- fix: supply `command-line-basics` notifier info
+
 ## 0.8.2
 
 - fix: switch to rpl/badge-up

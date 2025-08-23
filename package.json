@@ -1,6 +1,6 @@
 {
   "name": "coveradge",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "Generate coverage badges during local nyc/istanbul execution",
   "type": "module",
   "main": "src/reporter.cjs",
@@ -44,7 +44,7 @@
   "contributors": [],
   "license": "MIT",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "^20.11.0 || >=22.0.0"
   },
   "bugs": {
     "url": "https://github.com/brettz9/coveradge/issues"
