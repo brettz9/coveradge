@@ -8,13 +8,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(await readFile(join(__dirname, '../package.json')));
 
 const getChalkTemplateSingleEscape = (s) => {
-  return s.replaceAll(/[{}\\]/gu, (ch) => {
+  return s.replaceAll(/[\{\}\\]/gv, (ch) => {
     return `\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
 
 const getChalkTemplateEscape = (s) => {
-  return s.replaceAll(/[{}\\]/gu, (ch) => {
+  return s.replaceAll(/[\{\}\\]/gv, (ch) => {
     return `\\\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
@@ -46,7 +46,8 @@ const optionDefinitions = [
   {
     name: 'format', alias: 'f', type: String,
     description: 'The output format (defaults to "svg"); to use "png", you ' +
-      'must install, e.g., add to your dependencies, `convert-svg-to-png`.',
+      'must add to your dependencies, `convert-svg-to-png` and ' +
+      '`puppeteer`.',
     typeLabel: '{underline "svg"|"png"}'
   },
   {

@@ -1,4 +1,4 @@
-/* eslint-disable no-console -- Testing */
+/* eslint-disable import/unambiguous -- Testing */
 'use strict';
 
 const a = 0;

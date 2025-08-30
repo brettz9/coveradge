@@ -4,8 +4,10 @@
 
 BREAKING:
 - Requires Node ^20.11.0 || >=22.0.0
+- PNG conversions now require separate `puppeteer` install
 
 - fix: supply `command-line-basics` notifier info
+- chore: update devDeps.
 
 ## 0.8.2
 

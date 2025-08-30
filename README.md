@@ -6,8 +6,6 @@
 [![coverage badge](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/coverage-badge.svg?sanitize=true)](badges/coverage-badge.svg)
 
 [![Known Vulnerabilities](https://snyk.io/test/github/brettz9/coveradge/badge.svg)](https://snyk.io/test/github/brettz9/coveradge)
-[![Total Alerts](https://img.shields.io/lgtm/alerts/g/brettz9/coveradge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/coveradge/alerts)
-[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/brettz9/coveradge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/coveradge/context:javascript)
 
 <!--[![License](https://img.shields.io/npm/l/coveradge.svg)](LICENSE-MIT.txt)-->
 [![Licenses badge](https://raw.githubusercontent.com/brettz9/coveradge/master/badges/licenses-badge.svg?sanitize=true)](badges/licenses-badge.svg)
@@ -23,7 +21,7 @@
 If you need png export, run:
 
 ```
-npm i -D coveradge convert-svg-to-png
+npm i -D coveradge convert-svg-to-png puppeteer
 ```
 
 Otherwise, just this:

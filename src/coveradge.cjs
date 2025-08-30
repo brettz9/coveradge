@@ -1,4 +1,4 @@
-/* eslint-disable n/no-sync -- Needed */
+/* eslint-disable import/unambiguous, n/no-sync -- Needed */
 'use strict';
 
 // Tried promisified async methods but were puzzlingly not working
@@ -203,7 +203,7 @@ async function coveradge (cfg) {
 
   const badge = await badgeUp(sections);
 
-  const outputBase = output.replace(/\.(?:png|svg)$/u, '');
+  const outputBase = output.replace(/\.(?:png|svg)$/v, '');
 
   const svgFilePath = `${outputBase}.svg`;
 
@@ -216,8 +216,15 @@ async function coveradge (cfg) {
     // eslint-disable-next-line @stylistic/max-len -- Long
     // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
     const {convertFile} = require('convert-svg-to-png');
+    // eslint-disable-next-line @stylistic/max-len -- Long
+    // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
+    const {executablePath} = require('puppeteer');
+
     const outputFile = await convertFile(
-      pathResolve(process.cwd(), svgFilePath)
+      pathResolve(process.cwd(), svgFilePath),
+      {
+        launch: {executablePath}
+      }
     );
     log('Wrote file', outputFile);
     unlinkSync(pathResolve(process.cwd(), svgFilePath));
