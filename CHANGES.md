@@ -1,6 +1,6 @@
 # CHANGES for coveradge
 
-## 0.9.0 (unreleased)
+## 0.9.0
 
 BREAKING:
 - Requires Node ^22.16.0 || >=24.0.0
