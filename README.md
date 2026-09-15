@@ -20,13 +20,13 @@
 
 If you need png export, run:
 
-```
-npm i -D coveradge convert-svg-to-png puppeteer
+```shell
+npm i -D coveradge sharp
 ```
 
 Otherwise, just this:
 
-```
+```shell
 npm i -D coveradge
 ```
 

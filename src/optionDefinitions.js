@@ -46,8 +46,7 @@ const optionDefinitions = [
   {
     name: 'format', alias: 'f', type: String,
     description: 'The output format (defaults to "svg"); to use "png", you ' +
-      'must add to your dependencies, `convert-svg-to-png` and ' +
-      '`puppeteer`.',
+      'must add to your dependencies `sharp`.',
     typeLabel: '{underline "svg"|"png"}'
   },
   {
