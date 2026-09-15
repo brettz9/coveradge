@@ -1,11 +1,11 @@
-/* eslint-disable import/unambiguous, n/no-sync -- Needed */
+/* eslint-disable n/no-sync -- Needed */
 'use strict';
 
 // Tried promisified async methods but were puzzlingly not working
-const {writeFileSync, unlinkSync} = require('fs');
-const {resolve: pathResolve} = require('path');
+const {writeFileSync, unlinkSync} = require('node:fs');
+const {resolve: pathResolve} = require('node:path');
 
-const badgeUp = require('@rpl/badge-up').v2;
+const badgeUp = require('@cumulusds/badge-up').v2;
 const es6Templates = require('es6-template-strings');
 const {loadNycConfig} = require('@istanbuljs/load-nyc-config');
 
@@ -62,12 +62,12 @@ async function coveradge (cfg) {
         nycConfig.watermarks[condition];
       // Priority to CLI condition threshold, then to nyc, then default to 100
       o['low_' + condition] = low
-        ? Number.parseFloat(low)
+        ? Number(low)
         : watermark
           ? watermark[0]
           : nycConfig[condition] || 100;
       o['medium_' + condition] = medium
-        ? Number.parseFloat(medium)
+        ? Number(medium)
         : watermark
           ? watermark[1]
           : nycConfig[condition] || 100;
@@ -97,12 +97,9 @@ async function coveradge (cfg) {
     : possibleConditions;
 
   /**
-  * @typedef {GenericArray} BadgeSection
-  * @property {string} 0 string
-  * @property {string} 1 color
-  * @property {string} 2 [strokeColor]
-  * @see https://github.com/yahoo/badge-up
-  */
+   * @typedef {[string, color, strokeColor?]} BadgeSection
+   * @see https://github.com/yahoo/badge-up
+   */
 
   /**
    * @param {"failing"|"medium"|"passing"} status
@@ -207,27 +204,18 @@ async function coveradge (cfg) {
 
   const svgFilePath = `${outputBase}.svg`;
 
-  writeFileSync(pathResolve(process.cwd(), svgFilePath), badge + '\n');
+  const svgPath = pathResolve(process.cwd(), svgFilePath);
+  writeFileSync(svgPath, badge + '\n');
 
   log('Finished writing temporary SVG file...');
 
   if (format === 'png') {
-    // Make non-global as optional
     // eslint-disable-next-line @stylistic/max-len -- Long
-    // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
-    const {convertFile} = require('convert-svg-to-png');
-    // eslint-disable-next-line @stylistic/max-len -- Long
-    // eslint-disable-next-line n/global-require, n/no-unpublished-require -- Optional
-    const {executablePath} = require('puppeteer');
+    // eslint-disable-next-line n/no-unpublished-require, n/global-require -- Optional
+    const sharp = require('sharp');
+    await (sharp(svgPath).png().toFile(svgPath.replace(/\.svg$/v, '.png')));
 
-    const outputFile = await convertFile(
-      pathResolve(process.cwd(), svgFilePath),
-      {
-        launch: {executablePath}
-      }
-    );
-    log('Wrote file', outputFile);
-    unlinkSync(pathResolve(process.cwd(), svgFilePath));
+    unlinkSync(svgPath);
     log('Cleaned up temporary SVG file');
   }
 

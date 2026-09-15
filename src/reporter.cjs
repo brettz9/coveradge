@@ -1,15 +1,15 @@
-/* eslint-disable import/unambiguous, no-unused-vars -- Ok */
+/* eslint-disable no-unused-vars -- Ok */
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
 const {ReportBase} = require('istanbul-lib-report');
 
 const coveradge = require('./coveradge.cjs');
 
 /**
-* @typedef {object} CoveradgeReporterOptions
-* @property {todo} todo
-*/
+ * @typedef {object} CoveradgeReporterOptions
+ * @property {todo} todo
+ */
 
 /**
  * @extends ReportBase

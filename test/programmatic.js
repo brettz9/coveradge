@@ -1,6 +1,6 @@
-import {mkdir, readFile} from 'fs/promises';
-import {join, dirname} from 'path';
-import {fileURLToPath} from 'url';
+import {mkdir, readFile} from 'node:fs/promises';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 import {expect} from 'chai';
 import {rimraf} from 'rimraf';

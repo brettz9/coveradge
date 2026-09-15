@@ -3,8 +3,8 @@
 ## 0.9.0 (unreleased)
 
 BREAKING:
-- Requires Node ^20.11.0 || >=22.0.0
-- PNG conversions now require separate `puppeteer` install
+- Requires Node ^22.16.0 || >=24.0.0
+- change from convert-svg-to-png support to sharp
 
 - fix: supply `command-line-basics` notifier info
 - chore: update devDeps.

@@ -1,7 +1,7 @@
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 
-import {join, dirname} from 'path';
-import {fileURLToPath} from 'url';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -9,13 +9,13 @@ const pkg = JSON.parse(await readFile(join(__dirname, '../package.json')));
 
 const getChalkTemplateSingleEscape = (s) => {
   return s.replaceAll(/[\{\}\\]/gv, (ch) => {
-    return `\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
+    return String.raw`\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
 
 const getChalkTemplateEscape = (s) => {
   return s.replaceAll(/[\{\}\\]/gv, (ch) => {
-    return `\\\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
+    return String.raw`\\u${ch.codePointAt().toString(16).padStart(4, '0')}`;
   });
 };
 
@@ -26,8 +26,8 @@ const getBracketedChalkTemplateEscape = (s) => {
 /* eslint-disable jsdoc/require-property -- Ok */
 // Todo: We really need a comamnd-line-args-TO-typedef-jsdoc generator!
 /**
-* @typedef {object} CoveradgeOptions
-*/
+ * @typedef {object} CoveradgeOptions
+ */
 /* eslint-enable jsdoc/require-property -- Ok */
 
 const optionDefinitions = [

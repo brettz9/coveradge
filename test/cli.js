@@ -1,8 +1,8 @@
-import {mkdir, readFile} from 'fs/promises';
-import {join, dirname} from 'path';
-import {fileURLToPath} from 'url';
-import {execFile as ef} from 'child_process';
-import {promisify} from 'util';
+import {mkdir, readFile} from 'node:fs/promises';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFile as ef} from 'node:child_process';
+import {promisify} from 'node:util';
 
 import {expect} from 'chai';
 import {rimraf} from 'rimraf';
